@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="display">
+    <img [src]="pregunta" >
+  </div>
+
+  <div class="opciones" *ngIf="respondido">
+    <app-opcion class="opcion" 
+      *ngFor="let opcion of opciones; let i = index" 
+      [opcion]="opciones[i]"
+      (respuestaMarcada)="evaluarRespuesta($event)"
+    />
+  </div>
+
+  <div class="solucion" *ngIf="!respondido">
+    <div>
+      <h2 [ngClass]="acierto ? 'respuesta-correcta' : 'respuesta-incorrecta'">
+        {{ mensajeSolucion }}
+      </h2>
+      <h3 *ngIf="!acierto">{{ respuestaMarcada }}</h3>
+    </div>
+    <h1>{{ respuesta }}</h1>
+    <button (click)="onComienzo()">Pulse para continuar</button>
+  </div>
+</div>

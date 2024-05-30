@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --fondo: #f3f7f8;
+  --dark-color: #282c37;
+  --medium-color: #9baec8;
+  --light-color: #d9e1e8;
+  --blue-color: #2b90d9;
+  --danger-color: #c70000;
+}
+
+html, body { height: 100%; background-color: var(--fondo); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #3d3d3d;
+}
+
+a:hover {
+  color: black;
+}
+
+button {
+  color: var(--fondo) !important;
+  background-color: var(--dark-color);
+  cursor: pointer;
+}
