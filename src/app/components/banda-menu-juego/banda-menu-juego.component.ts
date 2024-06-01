@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class BandaMenuJuegoComponent {
 
+  numeroPreguntas: number = 0;
+  numeroPregunta: number = 0;
+
   constructor(private router: Router) {
 
   }

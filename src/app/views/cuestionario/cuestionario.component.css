@@ -38,7 +38,7 @@ button {
   align-content: start;
   border: 3px solid;
   background-color: var(--medium-color);
-  border-radius: 10px 10px 0 0 ;
+  border-radius: 10px 10px 0 0;
 }
 
 .solucion {
@@ -47,6 +47,7 @@ button {
   justify-content: center;
   border: 3px solid;
   background-color: var(--medium-color);
+  border-radius: 10px 10px 0 0;
 
   & * {
     text-align: center;
@@ -93,11 +94,11 @@ button {
   }
 
   .display {
-    height: 41vh;
+    height: 40vh;
   }
 
   .banda-menu{
-    height: 5vh;
+    height: 6vh;
   }
 
   .opciones {

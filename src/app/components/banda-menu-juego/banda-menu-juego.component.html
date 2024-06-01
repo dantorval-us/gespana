@@ -1,6 +1,11 @@
 <div class="container">
   <ng-container *ngIf="respondido; else esRespuesta">
-    
+    <div class="n-pregunta">
+      <div>Pregunta</div>
+      <div>
+        {{ numeroPregunta}}/{{ numeroPreguntas }}
+      </div>
+    </div>
   </ng-container>
 
   <ng-template #esRespuesta>

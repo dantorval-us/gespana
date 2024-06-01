@@ -10,3 +10,19 @@
     border-radius: 5px;
   }
 }
+
+.n-pregunta {
+  text-align: center;
+  padding: 0 1rem;
+  border: 2px solid;
+  background-color: var(--medium-color);
+  border-radius: 5px;
+
+  div:first-child{
+    font-size: small;
+  }
+
+  div:nth-child(2) {
+    font-size: large;
+  }
+}
