@@ -4,15 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { OpcionComponent } from "../../components/opcion/opcion.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-gespana',
+    selector: 'app-cuestionario',
     standalone: true,
-    templateUrl: './gespana.component.html',
-    styleUrl: './gespana.component.css',
+    templateUrl: './cuestionario.component.html',
+    styleUrl: './cuestionario.component.css',
     imports: [OpcionComponent, CommonModule, FormsModule]
 })
-export class GespanaComponent implements OnInit{
+export class CuestionarioComponent implements OnInit{
 
   nivel: number = 3;
   niveles: Map<number, number>;
@@ -24,7 +25,10 @@ export class GespanaComponent implements OnInit{
   acierto!: boolean;
   mensajeSolucion: string = 'Respuesta';
 
-  constructor(private comunidadesAutonomasService: ComunidadesAutonomasService) {
+  constructor(
+    private comunidadesAutonomasService: ComunidadesAutonomasService,
+    private router: Router
+    ) {
     this.niveles = new Map<number, number>([
       [1, 4],
       [2, 6],
@@ -85,6 +89,10 @@ export class GespanaComponent implements OnInit{
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+  }
+
+  onFinalizar() {
+    this.router.navigate(['area-de-comienzo'])
   }
 
 }

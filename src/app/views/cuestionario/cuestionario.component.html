@@ -20,6 +20,9 @@
       <h3 *ngIf="!acierto">{{ respuestaMarcada }}</h3>
     </div>
     <h1>{{ respuesta }}</h1>
-    <button (click)="onComienzo()">Pulse para continuar</button>
+    <div>
+      <button (click)="onFinalizar()">Finalizar</button> &nbsp;
+      <button (click)="onComienzo()">Pulse para continuar</button>
+    </div>
   </div>
 </div>
