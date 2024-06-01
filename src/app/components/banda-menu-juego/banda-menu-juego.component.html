@@ -1,0 +1,9 @@
+<div class="container">
+  <ng-container *ngIf="respondido; else esRespuesta">
+    
+  </ng-container>
+
+  <ng-template #esRespuesta>
+    <button (click)="onFinalizar()">Finalizar</button>
+  </ng-template>
+</div>

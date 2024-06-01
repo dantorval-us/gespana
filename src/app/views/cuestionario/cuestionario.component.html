@@ -4,6 +4,10 @@
     <img [src]="pregunta" >
   </div>
 
+  <div class="banda-menu">
+    <app-banda-menu-juego [respondido]="respondido"/>
+  </div>
+
   <div class="opciones" *ngIf="respondido">
     <app-opcion class="opcion" 
       *ngFor="let opcion of opciones; let i = index" 

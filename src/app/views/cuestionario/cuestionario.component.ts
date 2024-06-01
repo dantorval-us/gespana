@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { OpcionComponent } from "../../components/opcion/opcion.component";
+import { BandaMenuJuegoComponent } from "../../components/banda-menu-juego/banda-menu-juego.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cuestionario',
     standalone: true,
     templateUrl: './cuestionario.component.html',
     styleUrl: './cuestionario.component.css',
-    imports: [OpcionComponent, CommonModule, FormsModule]
+    imports: [OpcionComponent, BandaMenuJuegoComponent, CommonModule, FormsModule]
 })
 export class CuestionarioComponent implements OnInit{
 

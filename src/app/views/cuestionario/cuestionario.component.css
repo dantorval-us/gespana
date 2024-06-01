@@ -17,6 +17,7 @@ button {
   border: 3px solid;
   background-color: var(--light-color);
   padding: 1vh 0;
+  border-radius: 0 0 10px 10px;
 
   & img {
     max-width: 100%;
@@ -37,6 +38,7 @@ button {
   align-content: start;
   border: 3px solid;
   background-color: var(--medium-color);
+  border-radius: 10px 10px 0 0 ;
 }
 
 .solucion {
@@ -91,7 +93,11 @@ button {
   }
 
   .display {
-    height: 45vh;
+    height: 41vh;
+  }
+
+  .banda-menu{
+    height: 5vh;
   }
 
   .opciones {
