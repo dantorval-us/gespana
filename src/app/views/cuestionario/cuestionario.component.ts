@@ -92,8 +92,4 @@ export class CuestionarioComponent implements OnInit{
     return array;
   }
 
-  onFinalizar() {
-    this.router.navigate(['area-de-comienzo'])
-  }
-
 }
