@@ -51,4 +51,17 @@ button[disabled] {
   text-align: center;
 }
 
-
+.mat-mdc-radio-button.mat-accent {
+  --mdc-radio-disabled-selected-icon-color: black;
+  --mdc-radio-disabled-unselected-icon-color: var(--medium-color);
+  --mdc-radio-unselected-hover-icon-color: #212121;
+  --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+  --mdc-radio-selected-focus-icon-color: var(--dark-color);
+  --mdc-radio-selected-hover-icon-color: var(--dark-color);
+  --mdc-radio-selected-icon-color: var(--dark-color);
+  --mdc-radio-selected-pressed-icon-color: var(--dark-color);
+  --mat-radio-ripple-color: black;
+  --mat-radio-checked-ripple-color: var(--medium-color);
+  --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}

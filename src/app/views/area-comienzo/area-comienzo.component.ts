@@ -18,4 +18,8 @@ export class AreaComienzoComponent {
     this.router.navigate(['numero-de-preguntas'])
   }
 
+  navigateTemas() {
+    this.router.navigate(['temas'])
+  }
+
 }

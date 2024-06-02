@@ -1,0 +1,14 @@
+<div class="container">
+  <div>{{ tema.nombre }}</div>
+  <div>
+    <mat-radio-group [(ngModel)]="tema.dificultad">
+      <mat-radio-button 
+        *ngFor="let d of dificultads; let i = index" 
+        [value]="d"
+        [disabled]="i === 3"
+      >
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+  

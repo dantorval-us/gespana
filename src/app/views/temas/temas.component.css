@@ -1,0 +1,53 @@
+button{
+  margin-top: 0.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabla {
+  height: 80vh;
+  width:  90vw;
+  border: 3px solid;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  box-shadow: rgba(40,44,55,.35) 0 -25px 18px -14px inset,rgba(40,44,55,.35) 0 1px 2px,rgba(40,44,55,.35) 0 2px 4px,rgba(40,44,55,.35) 0 4px 8px,rgba(40,44,55,.35) 0 8px 16px,rgba(40,44,55,.35) 0 16px 32px;
+}
+
+.cabecera {
+  display: flex;
+  height: 3rem;
+  background-color: var(--medium-color);
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.row-0 {
+  font-size: large;
+  font-weight: bold;
+  padding: 1rem 0;
+
+  display: grid;
+  grid-template-columns: auto 15% 15% 15% 15%;
+
+  div:not(:first-child) {
+    text-align: center;
+  }
+
+  div:first-child {
+    padding-left: 1rem;
+  }
+
+  div:last-child {
+    color: var(--medium-color);
+  }
+}

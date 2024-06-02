@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="tabla">
+    <div class="cabecera">Temas</div>
+    <div class="row-0">
+      <div>Dificultad:</div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>
+    <ng-container *ngFor="let tema of temas">
+      <app-tema [tema]="tema"/>
+    </ng-container>
+  </div>
+
+  <button class="button-menu" (click)="onBack()">Atrás</button>
+
+</div>

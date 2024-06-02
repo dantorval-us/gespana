@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 60%;
+
+  div:first-child {
+    align-self: center;
+    padding-left: 1rem;
+    font-size: large;
+  }
+}
+
+mat-radio-group {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+
+  * {
+    text-align: center;
+  }
+}
