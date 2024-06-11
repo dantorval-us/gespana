@@ -28,7 +28,7 @@ export class CuestionarioComponent implements OnInit{
 
   constructor(
     private comunidadesAutonomasService: ComunidadesAutonomasService,
-    ) {
+  ) {
     this.niveles = new Map<number, number>([
       [1, 4],
       [2, 6],

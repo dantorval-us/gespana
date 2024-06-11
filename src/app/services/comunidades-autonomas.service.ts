@@ -8,7 +8,7 @@ import { COMUNIDADES_AUTONOMAS } from '../../assets/data/comunidades-autonomas';
 export class ComunidadesAutonomasService {
 
   bateriaPreguntas = [...COMUNIDADES_AUTONOMAS];
-  bateriaRespuestas: ComunidadAutonoma[] = [];
+  bateriaRespuestas = [...COMUNIDADES_AUTONOMAS];
 
   constructor() { }
 
@@ -21,11 +21,9 @@ export class ComunidadesAutonomasService {
     
     this.descartarPregunta(id);
 
-    if (this.bateriaPreguntas.length === 0) {
+    if (this.bateriaPreguntas.length === 0) { 
       this.resetBateriaPreguntas();
     }
-
-    this.bateriaRespuestas = [...this.bateriaPreguntas];
 
     return comunidadAutonomaAleatoria;
   }
