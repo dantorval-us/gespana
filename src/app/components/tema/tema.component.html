@@ -3,9 +3,10 @@
   <div>
     <mat-radio-group [(ngModel)]="tema.dificultad">
       <mat-radio-button 
-        *ngFor="let d of dificultads; let i = index" 
-        [value]="d"
+        *ngFor="let dificultad of dificultades; let i = index" 
+        [value]="dificultad"
         [disabled]="i === 3"
+        (click)="onDificultadClick(dificultad)"
       >
       </mat-radio-button>
     </mat-radio-group>

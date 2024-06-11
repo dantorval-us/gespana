@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TEMAS } from '../../../assets/data/config-juego';
 
 @Component({
   selector: 'app-area-comienzo',
@@ -8,10 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './area-comienzo.component.html',
   styleUrl: './area-comienzo.component.css'
 })
-export class AreaComienzoComponent {
+export class AreaComienzoComponent implements OnInit{
 
-  constructor(private router: Router) {
+  dificultadSeleccionada: boolean = false;
 
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    if(TEMAS[0].dificultad) {
+      this.dificultadSeleccionada = true;
+    }
   }
 
   navigateNumeroPreguntas() {

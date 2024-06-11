@@ -14,6 +14,12 @@ import { Tema } from '../../models/tema';
 export class TemaComponent {
 
   @Input() tema!: Tema;
-  dificultads: number[] = [1, 2, 3, 4];
+  dificultades: number[] = [1, 2, 3, 4];
+
+  onDificultadClick(dificultad: number) {
+    if (this.tema.dificultad === dificultad) {
+      this.tema.dificultad = null;
+    }
+  }
 
 }

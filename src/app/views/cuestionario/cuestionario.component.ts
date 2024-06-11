@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { OpcionComponent } from "../../components/opcion/opcion.component";
 import { BandaMenuJuegoComponent } from "../../components/banda-menu-juego/banda-menu-juego.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
+import { TEMAS } from '../../../assets/data/config-juego';
 
 @Component({
     selector: 'app-cuestionario',
@@ -16,7 +16,7 @@ import { ComunidadesAutonomasService } from '../../services/comunidades-autonoma
 })
 export class CuestionarioComponent implements OnInit{
 
-  nivel: number = 3;
+  nivel: number | null = TEMAS[0].dificultad;
   niveles: Map<number, number>;
   pregunta: string = '';
   respuesta: string = '';
@@ -28,7 +28,6 @@ export class CuestionarioComponent implements OnInit{
 
   constructor(
     private comunidadesAutonomasService: ComunidadesAutonomasService,
-    private router: Router
     ) {
     this.niveles = new Map<number, number>([
       [1, 4],
@@ -46,7 +45,7 @@ export class CuestionarioComponent implements OnInit{
     this.respondido = !this.respondido;
     // this.setNivel(nivel);
     this.setPreguntaYRespuesta();
-    this.setOpciones(this.nivel);
+    this.setOpciones(this.nivel!);
   }
 
   // setNivel(nivel: number): void {

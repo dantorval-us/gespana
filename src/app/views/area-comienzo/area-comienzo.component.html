@@ -1,4 +1,8 @@
 <div class="container">
-  <button class="button-menu" (click)="navigateNumeroPreguntas()">Comenzar</button>
+  <button class="button-menu" 
+    (click)="navigateNumeroPreguntas()"
+    [disabled]="!dificultadSeleccionada"
+  >
+    Comenzar</button>
   <button class="button-menu" (click)="navigateTemas()">Temas</button>
 </div>
