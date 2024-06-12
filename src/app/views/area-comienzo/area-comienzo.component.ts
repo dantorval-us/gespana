@@ -11,14 +11,16 @@ import { TEMAS } from '../../../assets/data/config-juego';
 })
 export class AreaComienzoComponent implements OnInit{
 
-  dificultadSeleccionada: boolean = false;
+  temasSeleccionados: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if(TEMAS[0].dificultad) {
-      this.dificultadSeleccionada = true;
-    }
+    this.setTieneTemasSeleccionados();
+  }
+
+  setTieneTemasSeleccionados() {
+    this.temasSeleccionados = TEMAS.some(tema => tema.dificultad !== null)
   }
 
   navigateNumeroPreguntas() {

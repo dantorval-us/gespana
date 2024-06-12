@@ -9,11 +9,11 @@
       <div>3</div>
       <div>4</div>
     </div>
-    <ng-container *ngFor="let tema of temas">
+    <ng-container *ngFor="let tema of temasUsuario.temas">
       <app-tema [tema]="tema"/>
     </ng-container>
   </div>
 
-  <button class="button-menu" (click)="onBack()">Aceptar</button>
+  <button class="button-menu" (click)="onAceptar()">Aceptar</button>
 
 </div>
