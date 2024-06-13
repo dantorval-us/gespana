@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-import Temas from '../../interfaces/temas.interface';
 import { TemasService } from '../../services/temas.service';
 import { TemaComponent } from '../../components/tema/tema.component';
 import { TEMAS } from '../../../assets/data/config-juego';
+import { Tema } from '../../models/tema';
 
 @Component({
   selector: 'app-temas',
@@ -16,30 +16,23 @@ import { TEMAS } from '../../../assets/data/config-juego';
 })
 export class TemasComponent implements OnInit {
 
-  temasUsuario: Temas;
+  temasUsuario: Tema[] = TEMAS;
 
   constructor (
     private router: Router,
     private temasService: TemasService
-  ) { 
-    this.temasUsuario = {
-      usuario: 'por defecto',
-      temas: [],
+  ) { }
+
+  ngOnInit(): void {
+    /* Comprobación para que cuando recargue el navegador
+    no tome TEMAS vacío y lo envíe a BD */ 
+    if (TEMAS.length === 0) {
+      this.router.navigate(['']);
     }
   }
 
-  ngOnInit(): void {
-    this.setTemasUsuario();
-  }
-
-  async setTemasUsuario() {
-    this.temasUsuario = await this.temasService.getTemasUsuario('E2eHkrcVRwLFmXZKoSOC'); //usuario por defecto
-    TEMAS.length = 0;
-    TEMAS.push(...this.temasUsuario.temas);
-  }
-
   onAceptar() {
-    this.temasService.updateTemasUsuario('E2eHkrcVRwLFmXZKoSOC', this.temasUsuario.temas); //usuario por defecto
+    this.temasService.updateTemasUsuario('E2eHkrcVRwLFmXZKoSOC', this.temasUsuario); //usuario por defecto
     this.router.navigate(['']);
   }
 
