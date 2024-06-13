@@ -1,0 +1,29 @@
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 25vh;
+}
+
+.loader {
+  animation: load 3s 1 ease-in-out forwards;
+  text-shadow: 0 0 1px white;
+  color: var(--dark-color);
+}
+
+@keyframes load {
+  0% {
+    opacity: 0.08;
+    filter: blur(5px);
+    letter-spacing: 3px;
+  }
+  40%, 60% {
+    opacity: 1;
+    filter: blur(0);
+    letter-spacing: normal;
+  }
+  100% {
+    opacity: 0.08;
+    filter: blur(5px);
+    letter-spacing: 3px;
+  }
+}

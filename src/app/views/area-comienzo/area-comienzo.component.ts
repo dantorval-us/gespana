@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { TEMAS } from '../../../assets/data/config-juego';
 import { TemasService } from '../../services/temas.service';
 import Temas from '../../interfaces/temas.interface';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 @Component({
   selector: 'app-area-comienzo',
   standalone: true,
-  imports: [],
+  imports: [LoadingComponent],
   templateUrl: './area-comienzo.component.html',
   styleUrl: './area-comienzo.component.css'
 })
@@ -15,6 +16,7 @@ export class AreaComienzoComponent implements OnInit{
 
   temasUsuario!: Temas;
   temasSeleccionados: boolean = false;
+  loaded: boolean = false;
 
   constructor(
     private router: Router,
@@ -22,14 +24,25 @@ export class AreaComienzoComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    this.setTemasUsuario();
+    // Traer temas de BD solo al inicio (1ª vez)
+    if (!this.temasService.temasYaSeteados) {
+      this.setTemasUsuarioLocal();
+      this.temasService.temasYaSeteados = true;
+    } else { 
+      this.loaded = true;
+      this.setTieneTemasSeleccionados();
+    }
   }
 
-  async setTemasUsuario() {
+  async setTemasUsuarioLocal() {
     this.temasUsuario = await this.temasService.getTemasUsuario('E2eHkrcVRwLFmXZKoSOC'); //usuario por defecto
     TEMAS.length = 0;
     TEMAS.push(...this.temasUsuario.temas);
     this.setTieneTemasSeleccionados();
+    
+    setTimeout(() => {
+      this.loaded = true;
+    }, 2600);
   }
 
   setTieneTemasSeleccionados() {

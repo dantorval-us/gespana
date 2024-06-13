@@ -1,8 +1,14 @@
 <div class="container">
-  <button class="button-menu" 
-    (click)="navigateNumeroPreguntas()"
-    [disabled]="!temasSeleccionados"
-  >
-    Comenzar</button>
-  <button class="button-menu" (click)="navigateTemas()">Temas</button>
+
+  @if (loaded) {
+    <button class="button-menu" 
+      (click)="navigateNumeroPreguntas()"
+      [disabled]="!temasSeleccionados"
+    >
+      Comenzar</button>
+    <button class="button-menu" (click)="navigateTemas()">Temas</button>
+  } @else {
+    <app-loading/>
+  }
+
 </div>

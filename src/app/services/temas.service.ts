@@ -7,8 +7,18 @@ import { Tema } from '../models/tema';
   providedIn: 'root'
 })
 export class TemasService {
+
+  private temasUsuarioSeteado = false;
   
   constructor(private firestore: Firestore) { }
+
+  get temasYaSeteados(): boolean {
+    return this.temasUsuarioSeteado;
+  }
+
+  set temasYaSeteados(value: boolean) {
+    this.temasUsuarioSeteado = value;
+  }
   
   addTemas(temas: Temas) {
     const temasRef = collection(this.firestore, 'temas');
