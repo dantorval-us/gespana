@@ -6,6 +6,7 @@ import { OpcionComponent } from "../../components/opcion/opcion.component";
 import { BandaMenuJuegoComponent } from "../../components/banda-menu-juego/banda-menu-juego.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
 import { TEMAS } from '../../../assets/data/config-juego';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cuestionario',
@@ -16,8 +17,8 @@ import { TEMAS } from '../../../assets/data/config-juego';
 })
 export class CuestionarioComponent implements OnInit{
 
-  nivel: number | null = TEMAS[0].dificultad;
-  niveles: Map<number, number>;
+  dificultad!: number | null;
+  nPreguntasXDifitultad: Map<number, number>;
   pregunta: string = '';
   respuesta: string = '';
   opciones: string[] = [];
@@ -28,24 +29,33 @@ export class CuestionarioComponent implements OnInit{
 
   constructor(
     private comunidadesAutonomasService: ComunidadesAutonomasService,
+    private router: Router
   ) {
-    this.niveles = new Map<number, number>([
+    this.nPreguntasXDifitultad = new Map<number, number>([
       [1, 4],
       [2, 6],
       [3, 8],
       [4, 0]
     ]);
+    // this.dificultad = TEMAS[0].dificultad;
   }
 
   ngOnInit(): void {
-    this.onComienzo();
+    /* Comprobación para que cuando recargue el navegador
+    no tome TEMAS vacío y lo envíe a BD */ 
+    if (TEMAS.length === 0) {
+      this.router.navigate(['']);
+    } else {
+      this.dificultad = TEMAS[0].dificultad;
+      this.onComienzo();
+    }
   }
 
   onComienzo(): void {
     this.respondido = !this.respondido;
     // this.setNivel(nivel);
     this.setPreguntaYRespuesta();
-    this.setOpciones(this.nivel!);
+    this.setOpciones(this.dificultad!);
   }
 
   // setNivel(nivel: number): void {
@@ -64,7 +74,7 @@ export class CuestionarioComponent implements OnInit{
   }
 
   generarOpciones(nivel: number): void {
-    const numOpciones = this.niveles.get(nivel);
+    const numOpciones = this.nPreguntasXDifitultad.get(nivel);
     this.opciones = this.comunidadesAutonomasService.getOpciones(numOpciones!-1);
     this.opciones.push(this.respuesta); 
     this.opciones = this.shuffleArray(this.opciones);

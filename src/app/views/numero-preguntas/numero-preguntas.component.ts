@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TEMAS } from '../../../assets/data/config-juego';
 
 @Component({
   selector: 'app-numero-preguntas',
@@ -8,10 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './numero-preguntas.component.html',
   styleUrl: './numero-preguntas.component.css'
 })
-export class NumeroPreguntasComponent {
+export class NumeroPreguntasComponent implements OnInit{
 
-  constructor(private router: Router) {
+  constructor(private router: Router) { }
 
+  ngOnInit(): void {
+    /* Comprobación para que cuando recargue el navegador
+    no tome TEMAS vacío y lo envíe a BD */ 
+    if (TEMAS.length === 0) {
+      this.router.navigate(['']);
+    }
   }
 
   infinitasPreguntas() {
