@@ -16,7 +16,7 @@
     />
   </div>
 
-  <div class="solucion" *ngIf="!respondido">
+  <div class="solucion" *ngIf="!respondido" (click)="handleContinuar($event)">
     <div>
       <h2 [ngClass]="acierto ? 'respuesta-correcta' : 'respuesta-incorrecta'">
         {{ mensajeSolucion }}
@@ -28,4 +28,5 @@
       <button (click)="onComienzo()">Pulse para continuar</button>
     </div>
   </div>
+  
 </div>

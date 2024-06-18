@@ -51,6 +51,11 @@ export class CuestionarioComponent implements OnInit{
     }
   }
 
+  handleContinuar(event: MouseEvent): void {
+    if (event.target === event.currentTarget)
+      this.onComienzo();
+  }
+
   onComienzo(): void {
     this.respondido = !this.respondido;
     // this.setNivel(nivel);
