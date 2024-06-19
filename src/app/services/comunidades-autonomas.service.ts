@@ -9,6 +9,7 @@ export class ComunidadesAutonomasService {
 
   bateriaPreguntas = [...COMUNIDADES_AUTONOMAS];
   bateriaRespuestas = [...COMUNIDADES_AUTONOMAS];
+  id!: number;
 
   constructor() { }
 
@@ -16,10 +17,10 @@ export class ComunidadesAutonomasService {
     const randomIndex = Math.floor(Math.random() * this.bateriaPreguntas.length);
     const mapa = this.bateriaPreguntas[randomIndex].mapa;
     const nombre = this.bateriaPreguntas[randomIndex].nombre;
-    const id = this.bateriaPreguntas[randomIndex].id;
+    this.id = this.bateriaPreguntas[randomIndex].id;
     const comunidadAutonomaAleatoria = [mapa, nombre]
     
-    this.descartarPregunta(id);
+    this.descartarPregunta(this.id);
 
     if (this.bateriaPreguntas.length === 0) { 
       this.resetBateriaPreguntas();
@@ -34,6 +35,7 @@ export class ComunidadesAutonomasService {
 
   getOpciones(cantidad: number): string[] {
     const opciones: string[] = [];
+    this.bateriaRespuestas = this.bateriaRespuestas.filter(comunidad => comunidad.id !== this.id);
     for (let i=0; i<cantidad; i++) {
       const randomIndex = Math.floor(Math.random() * this.bateriaRespuestas.length);
       const comunidad = this.bateriaRespuestas[randomIndex];

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { OpcionComponent } from "../../components/opcion/opcion.component";
 import { BandaMenuJuegoComponent } from "../../components/banda-menu-juego/banda-menu-juego.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
 import { TEMAS } from '../../../assets/data/config-juego';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cuestionario',
@@ -18,26 +18,25 @@ import { Router } from '@angular/router';
 export class CuestionarioComponent implements OnInit{
 
   dificultad!: number | null;
-  nPreguntasXDifitultad: Map<number, number>;
+  nPreguntasPorDifitultad: Map<number, number>;
   pregunta: string = '';
   respuesta: string = '';
   opciones: string[] = [];
   respondido: boolean = false;
   respuestaMarcada: string = '';
   acierto!: boolean;
-  mensajeSolucion: string = 'Respuesta';
+  mensajeSolucion: string = '';
 
   constructor(
     private comunidadesAutonomasService: ComunidadesAutonomasService,
     private router: Router
   ) {
-    this.nPreguntasXDifitultad = new Map<number, number>([
+    this.nPreguntasPorDifitultad = new Map<number, number>([
       [1, 4],
       [2, 6],
       [3, 8],
       [4, 0]
     ]);
-    // this.dificultad = TEMAS[0].dificultad;
   }
 
   ngOnInit(): void {
@@ -58,14 +57,9 @@ export class CuestionarioComponent implements OnInit{
 
   onComienzo(): void {
     this.respondido = !this.respondido;
-    // this.setNivel(nivel);
     this.setPreguntaYRespuesta();
     this.setOpciones(this.dificultad!);
   }
-
-  // setNivel(nivel: number): void {
-  //   this.nivel = nivel;
-  // }
 
   setPreguntaYRespuesta(): void {
     const comunidadAutonomaAleatoria = this.comunidadesAutonomasService.getPreguntaAndDelete();
@@ -79,7 +73,7 @@ export class CuestionarioComponent implements OnInit{
   }
 
   generarOpciones(nivel: number): void {
-    const numOpciones = this.nPreguntasXDifitultad.get(nivel);
+    const numOpciones = this.nPreguntasPorDifitultad.get(nivel);
     this.opciones = this.comunidadesAutonomasService.getOpciones(numOpciones!-1);
     this.opciones.push(this.respuesta); 
     this.opciones = this.shuffleArray(this.opciones);
