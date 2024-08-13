@@ -51,6 +51,6 @@ Indica si la respuesta elegida es correcta o no, mostrando la solución y la res
 
 La aplicación se encuentra disponible en [https://gespana.web.app/](https://gespana.web.app/). *Recuerde que solo se ha diseñado una versión para dispositivos móviles hasta el momento*.
 
-Para probarla localmente, ejecute `ng serve` y navege a `http://localhost:4200/`.
+Para probarla localmente, ejecute `ng serve` y navegue a `http://localhost:4200/`.
 
 
