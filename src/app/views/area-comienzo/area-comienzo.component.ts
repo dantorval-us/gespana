@@ -26,7 +26,7 @@ export class AreaComienzoComponent implements OnInit{
   ngOnInit(): void {
     // Traer temas de BD solo al inicio (1ª vez)
     if (!this.temasService.temasYaSeteados) {
-      this.setTemasUsuarioLocal();
+      this.setConfigUsuario();
       this.temasService.temasYaSeteados = true;
     } else { 
       this.loaded = true;
@@ -34,15 +34,15 @@ export class AreaComienzoComponent implements OnInit{
     }
   }
 
-  async setTemasUsuarioLocal() {
+  async setConfigUsuario() {
     this.temasUsuario = await this.temasService.getTemasUsuario('E2eHkrcVRwLFmXZKoSOC'); //usuario por defecto
     TEMAS.length = 0;
     TEMAS.push(...this.temasUsuario.temas);
     this.setTieneTemasSeleccionados();
-    
-    setTimeout(() => {
+
+    // setTimeout(() => {
       this.loaded = true;
-    }, 2600);
+    // }, 2600);
   }
 
   setTieneTemasSeleccionados() {

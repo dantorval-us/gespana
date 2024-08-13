@@ -2,13 +2,20 @@
   <div>{{ tema.nombre }}</div>
   <div>
     <mat-radio-group [(ngModel)]="tema.dificultad">
-      <mat-radio-button 
-        *ngFor="let dificultad of dificultades; let i = index" 
-        [value]="dificultad"
-        [disabled]="i === 3"
-        (click)="onDificultadClick(dificultad)"
-      >
-      </mat-radio-button>
+      @if (tema.nombre === "Comunidades Autónomas") {
+        <mat-radio-button 
+          *ngFor="let dificultad of dificultades; let i = index" 
+          [value]="dificultad"
+          [disabled]="i === 3"
+          (click)="onDificultadClick(dificultad)"
+        >
+        </mat-radio-button>
+      } @else {
+        <mat-radio-button disabled
+          *ngFor="let dificultad of dificultades; let i = index" 
+        >
+        </mat-radio-button>
+      }
     </mat-radio-group>
   </div>
 </div>

@@ -7,6 +7,8 @@ import { OpcionComponent } from "../../components/opcion/opcion.component";
 import { BandaMenuJuegoComponent } from "../../components/banda-menu-juego/banda-menu-juego.component";
 import { ComunidadesAutonomasService } from '../../services/comunidades-autonomas.service';
 import { TEMAS } from '../../../assets/data/config-juego';
+import { COMUNIDADES_AUTONOMAS } from '../../../assets/data/comunidades-autonomas'; 
+import { PROVINCIAS } from '../../../assets/data/provincias';
 
 @Component({
     selector: 'app-cuestionario',
