@@ -1,27 +1,56 @@
 # Gespana
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Sobre el proyecto
 
-## Development server
+**Gespana** es un sencillo juego para aprender geografía española mediante cuestionarios, diseñado para dispositivos móviles.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este proyecto ha sido desarrollado con Angular 17.3.10.
 
-## Code scaffolding
+### Funcionalidades y capturas de pantalla
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Muestra una Comunidad Autónoma aleatoria, sin que se vuelva a repetir, y ofrece 4, 6 u 8 opciones en función de la dificultad seleccionada.
 
-## Build
+<p>
+  <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/dificultad-1.jpeg" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/dificultad-2.jpeg" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/dificultad-3.jpeg" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Indica si la respuesta elegida es correcta o no, mostrando la solución y la respuesta seleccionada, en rojo, en el caso de haber fallado.
 
-## Running unit tests
+<p>
+  <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/acierto.jpeg" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/fallo.jpeg" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Funcionalidades pendientes de implementar
 
-## Running end-to-end tests
+-  Dificultad 4. Ya no mostraría ninguna opción, el usuario tendría que escribirla.
+-  Nuevos temas como:
+    -  Provincias.
+    -  Banderas de las CC.AA. Y Provincias.
+    -  Capitales de Provincia.
+    -  Ríos.
+    -  Sistemas montañosos.
+    -  Montañas.
+    -  Población.
+    -  Lugares de interés.
+      
+    <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/temas.jpeg" width="200" />
+    
+-  Limitar el número de preguntas.
+  
+    <img src="https://github.com/dantorval-us/gespana/blob/readme/src/assets/images/readme/numero-preguntas.jpeg" width="200" />
+    
+-  Temporizador.
+-  Sistema de puntuación.
+-  Distintos usuarios.
+-  Multidispositivo.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## ¡Pruébelo!
 
-## Further help
+La aplicación se encuentra disponible en [https://gespana.web.app/](https://gespana.web.app/). *Recuerde que solo se ha diseñado una versión para dispositivos móviles hasta el momento*.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para probarla localmente, ejecute `ng serve` y navege a `http://localhost:4200/`.
+
+
